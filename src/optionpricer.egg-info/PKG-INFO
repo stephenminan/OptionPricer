@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: optionpricer
+Version: 0.0.0
+Summary: An option pricing library.
+Author-email: Stephen An <an.st@northeastern.edu>, Antonio Tagliatti <tagliatti.a@northeastern.edu>
+Maintainer-email: Stephen An <an.st@northeastern.edu>, Antonio Tagliatti <tagliatti.a@northeastern.edu>
+Project-URL: Documentation, https://github.com/stephenminan/OptionPricer#readme
+Project-URL: Issues, https://github.com/stephenminan/OptionPricer/issues
+Project-URL: Source, https://github.com/stephenminan/OptionPricer
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# OptionPricer

@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optionpricer"
+dynamic = ["version"]
+description = "An option pricing library."
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = []
+authors = [
+  { name = "Stephen An", email = "an.st@northeastern.edu" },
+  { name = "Antonio Tagliatti", email = "tagliatti.a@northeastern.edu" },
+]
+maintainers = [
+  { name = "Stephen An", email = "an.st@northeastern.edu" },
+  { name = "Antonio Tagliatti", email = "tagliatti.a@northeastern.edu" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/stephenminan/OptionPricer#readme"
+Issues = "https://github.com/stephenminan/OptionPricer/issues"
+Source = "https://github.com/stephenminan/OptionPricer"
+
+[tool.hatch.version]
+path = "src/optionpricer/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/optionpricer tests}"
+
+[tool.coverage.run]
+source_pkgs = ["optionpricer", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/optionpricer/__about__.py",
+]
+
+[tool.coverage.paths]
+optionpricer = ["src/optionpricer", "*/optionpricer/src/optionpricer"]
+tests = ["tests", "*/optionpricer/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
