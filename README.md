@@ -53,6 +53,7 @@ price = binomial_tree(
 )
 print(f"Option Price: {price}")
 ```
+### Monte Carlo Model
 ```
 price = monte_carlo(
     option_type="call",
