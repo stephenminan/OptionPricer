@@ -6,6 +6,7 @@ OptionPricer is a Python library for pricing financial options using the Black-S
 
 - **Black-Scholes Formula**: Analytical pricing for European options.
 - **Binomial Tree Model**: Numerical pricing for both American and European options.
+- **Monte Carlo Model**: Numerical pricing for both American and European options.
 - Support for call and put options.
 - Flexible input parameters for customization.
 
@@ -51,6 +52,17 @@ price = binomial_tree(
     american=True
 )
 print(f"Option Price: {price}")
+```
+```
+price = monte_carlo(
+    option_type="call",
+    spot_price=100,
+    strike_price=110,
+    time_to_maturity=1,
+    risk_free_rate=0.05,
+    volatility=0.2,
+    steps=100,
+    american=True
 ```
 ## Contributing
 [<img src="https://github.com/stephenminan.png" width="60px;"/><br /><sub><a href="https://github.com/stephenminan">Stephen An</a></sub>](https://github.com/stephenminan) 
