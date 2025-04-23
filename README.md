@@ -54,7 +54,8 @@ price = binomial_tree(
 print(f"Option Price: {price}")
 ```
 ### Monte Carlo Model
-```
+```python
+from optionpricer.monte_carlo import monte_carlo
 price = monte_carlo(
     option_type="call",
     spot_price=100,
