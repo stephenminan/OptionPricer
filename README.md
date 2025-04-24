@@ -52,6 +52,30 @@ price = binomial_tree(
 )
 print(f"Option Price: {price}")
 ```
+```python
+from optionpricer.monte_carlo import monte_carlo
+
+# Example: Price a European call option
+price = monte_carlo(
+    option_type="call",
+    spot_price=100,
+    strike_price=110,
+    time_to_maturity=1,
+    risk_free_rate=0.05,
+    volatility=0.2,
+    steps=100,
+    american=False
+)
+print(f"Option Price: {price}")
+```
+### How to run this package (SUPER SIMPLE)
+-Install package.
+-Import and initialize class.
+- Download modules.
+- Unittest for model functionality.
+- Choose jupyter script for the style of option.
+- Declare call or put and what model to use.
+- Module will automatically create MAE and visualize predicted option prices for comparison.
 ## Contributing
 [<img src="https://github.com/stephenminan.png" width="60px;"/><br /><sub><a href="https://github.com/stephenminan">Stephen An</a></sub>](https://github.com/stephenminan) 
 
