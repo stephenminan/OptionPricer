@@ -23,17 +23,21 @@ class Pricer:
         - Black-Scholes PDE
     """
 
-    def __init__(self, ContractParam, r: float, sigma: float, mu: float):
+    def __init__(self,
+                 ContractParam,
+                 r: float = 0.1,
+                 sigma: float = 0.2,
+                 mu: float = 0.1):
         """
-        ContractParam contains:
-            S0 = current stock price
-            K = Strike price
-            T = time to maturity
-            payoff = call or put
-            exercise = european or american
-        r = constant risk-free rate
-        sigma = constant volatility
-        mu = constant drift rate
+        :param ContractParam:
+        S0 = current stock price
+        K = Strike price
+        T = time to maturity
+        payoff = call or put
+        exercise = european or american
+        :param r: constant risk-free rate
+        :param sigma: constant volatility
+        :param mu: constant drift rate
         """
 
         self.S0 = ContractParam.S0
@@ -67,9 +71,8 @@ class Pricer:
     def black_scholes(self):
         """
         Black-Scholes formula for European option pricing.
-
         Returns:
-            option_price(float)
+            option price: float
         """
 
         # Calculate D1.
@@ -88,11 +91,13 @@ class Pricer:
                     np.exp(-self.dividend_yield * self.T) *
                     ss.norm.cdf(-d1))
 
-    def binomial_tree(self, N=1000):
+    def binomial_tree(self, N: int = 1000):
         """
         Binomial Tree model for European and American option pricing.
-
-        N: number of time steps
+        Parameters:
+            N: Number of time steps
+        Returns:
+            option price: float
         """
 
         dT = float(self.T) / N  # Delta t
@@ -116,9 +121,9 @@ class Pricer:
 
         for i in range(N - 1, -1, -1):
             # the price vector is overwritten at each step
-            self.price_vector[:-1] = np.exp(-self.r * dT) * (p * self.price_vector[
-                                                         1:] + q *
-                                             self.price_vector[:-1])
+            self.price_vector[:-1] = (np.exp(-self.r * dT) *
+                                      (p * self.price_vector[1:] + q *
+                                       self.price_vector[:-1]))
             if self.exercise == "european":
                 # for european options, we do not need to check the payoff
                 continue
@@ -132,15 +137,16 @@ class Pricer:
 
         return self.price_vector[0]
 
-    def monte_carlo(self, simulations_num=10000, num_time_steps=100):
+    def monte_carlo(self,
+                    simulations_num: int = 10000,
+                    num_time_steps: int = 100):
         """
         Monte Carlo simulation for European option pricing.
         Parameters:
-            option_type(str): 'call' or 'put'
-            simulations_num(int): Number of simulation paths
-            num_time_steps(int): Number of time steps
+            simulations_num: Number of simulation paths
+            num_time_steps: Number of time steps
         Returns:
-            optionprice(float)
+            option price: float
         """
 
         # Calculate parameters
@@ -165,14 +171,15 @@ class Pricer:
         # Return option price.
         return option_value
 
-    def black_scholes_pde(self, steps):
+    def black_scholes_pde(self, steps: tuple):
         """
         Black-Scholes PDE for American option pricing.
 
         Parameters:
             steps: tuple with number of space steps and time steps
+        Returns:
+            option price: float
         """
-
 
         Nspace = steps[0]
         Ntime = steps[1]

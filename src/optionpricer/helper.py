@@ -2,7 +2,8 @@ import os
 import pandas as pd
 from datetime import datetime
 
-def load_data_files(folder_path='data'):
+
+def load_data_files(folder_path='../data/raw/european'):
     """
     Loads all CSV files from folder.
     ADAPTED FOR CBOE SIMULATION DATA.
@@ -31,6 +32,7 @@ def load_data_files(folder_path='data'):
         except Exception as e:
             print("Error")
     return data_frames
+
 
 def calculate_days_to_expiration(current_date, expiration_date):
     """

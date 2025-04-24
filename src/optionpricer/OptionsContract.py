@@ -20,10 +20,10 @@ class ContractParam:
                  S0: float,
                  K: float,
                  T: float,
-                 v0=0.04,
-                 dividend_yield=0.0,
-                 payoff="call",
-                 exercise="european"):
+                 v0: float = 0.04,
+                 dividend_yield: float = 0.0,
+                 payoff: str = "call",
+                 exercise: str = "european"):
         self.S0 = S0
         self.K = K
         self.T = T
