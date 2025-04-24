@@ -66,6 +66,11 @@ price = monte_carlo(
     steps=100,
     american=True
 ```
+### Directions for Package
+    - This package is super simple one main class with inheriting classes that have methods of models to price options
+    - There are two jupyter notebook files: one for EDA on American historic data, and one for EDA on European future data.
+    - The two jupyter notebooks easily lead through how to use models, and also incorporate visualization for output.
+    - If you want to add models just write where other methods are and test case using test unit.
 ## Contributing
 [<img src="https://github.com/stephenminan.png" width="60px;"/><br /><sub><a href="https://github.com/stephenminan">Stephen An</a></sub>](https://github.com/stephenminan) 
 
